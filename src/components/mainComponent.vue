@@ -8,7 +8,7 @@
       />
     </div>
     <div class="music-tab" :v-if="musics.length > 0">
-      <musicCard :musics="musics" />
+      <musicCard :v-for="music in musics" />
     </div>
   </div>
 </template>

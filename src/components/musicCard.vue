@@ -1,5 +1,5 @@
 <template>
-  <div :v-for="music in musics">
+  <div>
     <img :src="music.poster" alt="music poster" />
     <h3>{{ music.title }}</h3>
     <h4>{{ music.author }}</h4>
@@ -7,11 +7,7 @@
 </template>
 
 <script>
-export default {
-  props: {
-    musics: Array,
-  },
-};
+export default {};
 </script>
 
 <style></style>
