@@ -7,8 +7,8 @@
         alt="spotify logo"
       />
     </div>
-    <div class="music-tab" :v-if="musics.length > 0">
-      <musicCard :v-for="music in musics" />
+    <div id="ciao" v-if="musics.length > 0">
+      <musicCard v-for="(music, index) in musics" :key="index" :music="music" />
     </div>
   </div>
 </template>
@@ -18,6 +18,7 @@ import axios from "axios";
 import musicCard from "@/components/musicCard.vue";
 
 export default {
+  name: "mainComponent",
   data() {
     return {
       musics: [],
@@ -48,6 +49,13 @@ export default {
   width: 100vw;
   height: 100vh;
 }
+#ciao {
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
 .top-bar {
   display: flex;
   justify-content: flex-start;
@@ -58,10 +66,6 @@ export default {
     margin-left: 50px;
     width: 50px;
     height: 50px;
-  }
-  .music-tab {
-    display: flex;
-    justify-content: center;
   }
 }
 </style>
