@@ -22,7 +22,7 @@ export default {
     selectValue(event) {
       console.log(event.target.value);
       this.selectedOption = event.target.value;
-      this.$emit(this.selectedOption);
+      this.$emit("selectedGenre", this.selectedOption);
     },
   },
 };

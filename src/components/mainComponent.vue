@@ -9,7 +9,12 @@
     </div>
     <inputMusic />
     <div id="ciao" v-if="musics.length > 0">
-      <musicCard v-for="(music, index) in musics" :key="index" :music="music" />
+      <musicCard
+        v-for="(music, index) in filteredMusicGenre"
+        :key="index"
+        :music="music"
+        @selectedGenre="filteredMusicGenre"
+      />
     </div>
   </div>
 </template>
@@ -36,6 +41,14 @@ export default {
         console.log(response.data.response);
         this.musics = response.data.response;
         console.log(this.musics);
+      });
+    },
+  },
+  computed: {
+    filteredMusicGenre(music) {
+      return this.musics.filter((item) => {
+        console.log(item.genre);
+        return item.genre.includes(this.genre);
       });
     },
   },
