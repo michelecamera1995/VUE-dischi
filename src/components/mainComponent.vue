@@ -7,13 +7,12 @@
         alt="spotify logo"
       />
     </div>
-    <inputMusic />
+    <inputMusic @selectedGenre="getMusicGenre" />
     <div id="ciao" v-if="musics.length > 0">
       <musicCard
         v-for="(music, index) in filteredMusicGenre"
         :key="index"
         :music="music"
-        @selectedGenre="filteredMusicGenre"
       />
     </div>
   </div>
@@ -28,6 +27,7 @@ export default {
   name: "mainComponent",
   data() {
     return {
+      genre: "",
       musics: [],
       url: "https://flynn.boolean.careers/exercises/api/array/music",
     };
@@ -36,6 +36,10 @@ export default {
     this.getMusic();
   },
   methods: {
+    getMusicGenre(genre) {
+      this.genre = genre;
+      console.log(genre);
+    },
     getMusic() {
       axios.get(this.url).then((response) => {
         console.log(response.data.response);
@@ -45,9 +49,10 @@ export default {
     },
   },
   computed: {
-    filteredMusicGenre(music) {
-      return this.musics.filter((item) => {
-        console.log(item.genre);
+    filteredMusicGenre(genre) {
+      this.musics.filter((item) => {
+        //console.log(this.genre);
+        //console.log(item.genre);
         return item.genre.includes(this.genre);
       });
     },

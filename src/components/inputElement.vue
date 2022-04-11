@@ -15,12 +15,12 @@ export default {
   name: "inputElement",
   data() {
     return {
-      selectedOption: "All",
+      selectedOption: "",
     };
   },
   methods: {
     selectValue(event) {
-      console.log(event.target.value);
+      //console.log(event.target.value);
       this.selectedOption = event.target.value;
       this.$emit("selectedGenre", this.selectedOption);
     },
