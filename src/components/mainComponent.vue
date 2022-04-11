@@ -7,6 +7,7 @@
         alt="spotify logo"
       />
     </div>
+    <inputMusic />
     <div id="ciao" v-if="musics.length > 0">
       <musicCard v-for="(music, index) in musics" :key="index" :music="music" />
     </div>
@@ -15,6 +16,7 @@
 
 <script>
 import axios from "axios";
+import inputMusic from "@/components/inputElement.vue";
 import musicCard from "@/components/musicCard.vue";
 
 export default {
@@ -39,6 +41,7 @@ export default {
   },
   components: {
     musicCard,
+    inputMusic,
   },
 };
 </script>
