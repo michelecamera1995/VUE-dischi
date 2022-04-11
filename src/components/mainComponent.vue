@@ -25,6 +25,7 @@ import musicCard from "@/components/musicCard.vue";
 
 export default {
   name: "mainComponent",
+  // data
   data() {
     return {
       genre: "",
@@ -32,31 +33,30 @@ export default {
       url: "https://flynn.boolean.careers/exercises/api/array/music",
     };
   },
+  // mounted
   mounted() {
     this.getMusic();
   },
+  // methods
   methods: {
     getMusicGenre(genre) {
       this.genre = genre;
-      console.log(genre);
+      //console.log(genre);
     },
     getMusic() {
       axios.get(this.url).then((response) => {
-        console.log(response.data.response);
         this.musics = response.data.response;
-        console.log(this.musics);
       });
     },
   },
+  // computed
   computed: {
-    filteredMusicGenre(genre) {
-      this.musics.filter((item) => {
-        //console.log(this.genre);
-        //console.log(item.genre);
-        return item.genre.includes(this.genre);
-      });
+    filteredMusicGenre() {
+      console.log(this.musics);
+      this.musics.genre = this.genre;
     },
   },
+  // components
   components: {
     musicCard,
     inputMusic,

@@ -13,16 +13,18 @@
 <script>
 export default {
   name: "inputElement",
+  // data
   data() {
     return {
       selectedOption: "",
     };
   },
+  // methods
   methods: {
     selectValue(event) {
-      //console.log(event.target.value);
       this.selectedOption = event.target.value;
       this.$emit("selectedGenre", this.selectedOption);
+      //console.log(event.target.value);
     },
   },
 };
