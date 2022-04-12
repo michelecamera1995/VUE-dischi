@@ -52,8 +52,11 @@ export default {
   // computed
   computed: {
     filteredMusicGenre() {
-      console.log(this.musics);
-      this.musics.genre = this.genre;
+      if (this.genre === "") {
+        return this.musics;
+      } else {
+        return this.musics.filter(({ genre }) => genre === this.genre);
+      }
     },
   },
   // components
